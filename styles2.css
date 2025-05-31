@@ -1,0 +1,244 @@
+/* === Fuentes Góticas === */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=UnifrakturCook&display=swap');
+
+/* === Variables gótico anime === */
+:root {
+  --primary-color: #4a0033;
+  --secondary-color: #0d0d0d;
+  --light-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --accent-color: #b30000;
+  --font-main: 'Cinzel', serif;
+  --font-heading: 'UnifrakturCook', cursive;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+  display: flex;
+}
+
+/* Barra lateral (navegación) */
+nav {
+  width: 200px;
+  background-color: var(--primary-color);
+  padding: 20px 10px;
+  border-right: 2px solid var(--accent-color);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px black;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+  animation: glow 1s ease infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px var(--accent-color);
+  }
+  to {
+    text-shadow: 0 0 15px var(--accent-color);
+  }
+}
+
+/* Imagen en el nav si se desea usar */
+nav img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Header (ajustado por menú lateral) */
+header {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  text-align: center;
+  padding: 20px;
+  border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 0 20px #b30000;
+  margin-left: 200px; /* para dejar espacio al menú lateral */
+}
+
+/* Imagen principal del header */
+header img {
+  margin: 20px auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 4px solid var(--accent-color);
+  border-radius: 10px;
+  box-shadow: 0 0 15px #660033;
+  transition: transform 0.5s ease;
+}
+
+header img:hover {
+  transform: scale(1.05);
+}
+
+/* Título principal */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--accent-color);
+  margin-top: 10px;
+  text-shadow: 2px 2px 5px black;
+  animation: pulseText 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseText {
+  0% {
+    text-shadow: 0 0 5px var(--accent-color);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--accent-color), 0 0 30px #660033;
+  }
+}
+
+/* Contenido principal */
+main {
+  max-width: 1000px;
+  margin: 30px auto 30px 230px; /* ajusta por menú lateral */
+  background-color: #121212;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #b30000;
+  font-size: 1.2rem;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main a {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: var(--text-color);
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Pie de página */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 2px solid var(--accent-color);
+  margin-left: 200px; /* igual que el header y main */
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background: var(--accent-color);
+  color: white;
+  z-index: 1000;
+}
+
+/* Clases grid y flex */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.grid img,
+.flex img,
+main img {
+  width: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px #660033;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.grid img:hover,
+.flex img:hover,
+main img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #b30000;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid var(--accent-color);
+  }
+
+  header, main, footer {
+    margin-left: 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
